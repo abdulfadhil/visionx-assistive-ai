@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Downloaded AI model weights
+*.pt
+*.onnx
+*.pth
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
