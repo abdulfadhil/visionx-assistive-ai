@@ -1,4 +1,4 @@
-# VisionX - Assistive AI
+﻿# VisionX - Assistive AI
 
 VisionX is an assistive AI prototype that uses computer vision to identify objects and provide spoken feedback. It explores how AI can make visual information more accessible to people with visual impairments.
 
@@ -79,7 +79,7 @@ For live announcements, allow camera access and enable spoken feedback in the ap
 Clone the repository and open its folder in a terminal:
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/abdulfadhil/visionx-assistive-ai.git
 cd visionx-assistive-ai
 ```
 
@@ -105,7 +105,7 @@ Start the application:
 
 Open the local URL displayed in the terminal, usually `http://localhost:8501`.
 
-The repository URL above is a placeholder until the GitHub repository is created.
+
 
 ## Sample Images
 
@@ -145,3 +145,4 @@ Making a repository public does not automatically grant others permission to reu
 ## Project Status
 
 VisionX is an ongoing assistive AI prototype. This repository documents the current implementation, how to run it, and its known limitations.
+
