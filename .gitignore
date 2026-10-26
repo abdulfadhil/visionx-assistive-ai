@@ -25,3 +25,7 @@ env/
 .idea/
 .DS_Store
 Thumbs.db
+# Local backup files
+*.backup
+
+docs/screenshots/screencapture-localhost-8501-2026-10-25-23_43_56.png
