@@ -163,3 +163,15 @@ Possible future improvements include:
 - Improving accessibility and evaluating the application through appropriate testing.
 
 These are possible future directions, not features currently implemented in the application.
+
+## License and Attribution
+
+VisionX is released under the GNU Affero General Public License v3.0 (AGPL-3.0). See the `LICENSE` file for the full license terms.
+
+VisionX uses Ultralytics YOLO11 for object detection. YOLO11 is provided under AGPL-3.0 or an Ultralytics Enterprise License, subject to the applicable terms.
+
+- [Ultralytics YOLO11 documentation](https://docs.ultralytics.com/models/yolo11)
+- [Ultralytics licensing information](https://www.ultralytics.com/license)
+- [GNU AGPL-3.0 license](https://www.gnu.org/licenses/agpl-3.0.html)
+
+The pretrained `yolo11n.pt` weights are not included in this repository. Obtain them from an appropriate source and follow the applicable license terms.
