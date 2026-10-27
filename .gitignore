@@ -27,3 +27,4 @@ env/
 Thumbs.db
 # Local backup files
 *.backup
+*.backup-*

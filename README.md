@@ -1,4 +1,4 @@
-﻿# VisionX – Assistive AI for the Visually Impaired
+# VisionX – Assistive AI for the Visually Impaired
 
 VisionX is an assistive AI project developed in October 2025 as an academic project. It explores how computer vision and spoken feedback can help people with visual impairments identify objects and understand some of the visual information around them.
 
@@ -73,6 +73,7 @@ visionx-assistive-ai/
 ├── app.py
 ├── requirements.txt
 ├── README.md
+├── LICENSE
 ├── .gitignore
 └── docs/
     ├── sample-images/
@@ -89,11 +90,13 @@ visionx-assistive-ai/
 
 - `app.py` — Contains the main application, object detection, and speech features.
 - `requirements.txt` — Lists the Python packages required to run the application.
-- `.gitignore` — Excludes local files such as virtual environments, downloaded model weights, and backups.
+- `README.md` — Documents the project, features, setup instructions, and limitations.
+- `LICENSE` — Contains the project's GNU Affero General Public License v3.0 terms.
+- `.gitignore` — Excludes local files such as virtual environments, downloaded model weights, and backup files.
 - `docs/sample-images/` — Contains example images for trying object detection.
 - `docs/screenshots/` — Contains screenshots of the application.
 
-The `.venv/` folder, Python cache files, local backups, and downloaded model weights are not included in the tracked project files.
+The `.venv/` folder, Python cache files, local backup files, and downloaded model weights are not included in the tracked project files.
 
 ## Getting Started
 
@@ -151,6 +154,8 @@ The results depend on the image and the objects detected by the model.
 ## Limitations
 
 VisionX may miss objects or identify them incorrectly. Confidence scores do not guarantee that a detection is correct. Spoken descriptions may not capture every detail of a scene, and live performance depends on the computer, camera, and browser.
+
+VisionX is an educational prototype, not a replacement for a trained guide dog, mobility aid, or other established assistance. It should not be relied on as the sole basis for navigation or safety-critical decisions.
 
 ## Future Improvements
 
