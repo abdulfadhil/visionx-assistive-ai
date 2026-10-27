@@ -1,18 +1,16 @@
-﻿# VisionX - Assistive AI
+﻿# VisionX – Assistive AI for the Visually Impaired
 
-VisionX is an assistive AI prototype that uses computer vision to identify objects and provide spoken feedback. It explores how AI can make visual information more accessible to people with visual impairments.
+VisionX is an assistive AI project developed in October 2025 as an academic project. It explores how computer vision and spoken feedback can help people with visual impairments identify objects and understand some of the visual information around them.
 
-The application runs on a computer and supports image uploads, camera photos, and continuous webcam detection.
+The application uses a pretrained YOLO model to detect objects in images and live webcam video. It displays detected objects with bounding boxes and confidence scores and can read descriptions aloud through the browser.
 
 ## The Problem
 
-People with visual impairments may need additional ways to learn about objects in their surroundings. VisionX explores how computer vision and audio feedback can help communicate some of this information.
+People with visual impairments can face difficulties identifying objects and understanding their surroundings. VisionX explores how computer vision and audio feedback can make information about detected objects more accessible.
 
 ## The Solution
 
-VisionX uses a pretrained YOLO model to detect supported objects in images and webcam video. It displays detection results and can communicate detected object information through browser-based speech.
-
-This is an experimental prototype, not a complete assistive navigation system.
+VisionX combines a YOLO object-detection model with a Streamlit web application. Users can upload an image, capture a photo using their camera, or start live webcam detection. The application identifies supported objects, displays the results, and provides spoken descriptions or live detection announcements.
 
 ## Features
 
@@ -21,8 +19,10 @@ This is an experimental prototype, not a complete assistive navigation system.
 - Detect supported objects using YOLO.
 - View object labels and bounding boxes.
 - Review detection confidence scores.
+- Generate descriptions based on detected objects.
+- Listen to spoken descriptions through the browser.
 - Process live webcam video.
-- Hear spoken descriptions and live detection announcements.
+- Enable automatic spoken announcements during live detection.
 - Run the application locally through Streamlit.
 
 ## Screenshots
@@ -45,67 +45,99 @@ This is an experimental prototype, not a complete assistive navigation system.
 
 ## Technology Stack
 
-- Python
-- Streamlit
-- Ultralytics YOLO
-- OpenCV
-- Pillow
-- Streamlit WebRTC
-- PyAV
-- Browser Speech Synthesis API
+| Technology | Purpose |
+|---|---|
+| Python | Application logic |
+| Streamlit | Web interface |
+| Ultralytics YOLO | Object detection |
+| OpenCV | Computer-vision and image/video processing support |
+| Pillow | Image handling |
+| Streamlit WebRTC | Live webcam streaming |
+| PyAV | Video-frame handling |
+| Browser Speech Synthesis API | Spoken descriptions and announcements |
 
 ## How It Works
 
-1. Start VisionX and open the local web interface.
-2. Upload an image, capture a camera photo, or start live webcam detection.
-3. The YOLO model processes the image or video frames.
-4. View the detected objects and bounding boxes.
-5. Use the available speech features to hear information about detected objects.
+1. The user uploads an image, captures a camera photo, or starts live webcam detection.
+2. The YOLO model processes the image or video frames.
+3. The application identifies supported objects and displays their labels, bounding boxes, and confidence scores.
+4. VisionX generates a short description based on the detected objects.
+5. The browser can read the description aloud or announce detections during live processing.
 
-For live announcements, allow camera access and enable spoken feedback in the application.
+Camera access and browser speech permissions may be required for these features.
+
+## Project Structure
+
+```text
+visionx-assistive-ai/
+├── app.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+└── docs/
+    ├── sample-images/
+    │   ├── BusyRoad.png
+    │   └── StreetScene.png
+    └── screenshots/
+        ├── DetectionResults.png
+        ├── LiveDetection.png
+        ├── ObjectDetection.png
+        └── VisionXHome.png
+```
+
+**Important files and folders**
+
+- `app.py` — Contains the main application, object detection, and speech features.
+- `requirements.txt` — Lists the Python packages required to run the application.
+- `.gitignore` — Excludes local files such as virtual environments, downloaded model weights, and backups.
+- `docs/sample-images/` — Contains example images for trying object detection.
+- `docs/screenshots/` — Contains screenshots of the application.
+
+The `.venv/` folder, Python cache files, local backups, and downloaded model weights are not included in the tracked project files.
 
 ## Getting Started
 
 ### Requirements
 
-- Python
+- Python and pip
 - A compatible web browser
-- A webcam for live detection
-- Internet access to install dependencies
-- The required YOLO model weights
+- Internet access to install dependencies and obtain the model weights
+- A webcam for camera capture and live detection
 
-### Installation
-
-Clone the repository and open its folder in a terminal:
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/abdulfadhil/visionx-assistive-ai.git
 cd visionx-assistive-ai
 ```
 
-Create a virtual environment:
+### 2. Create a virtual environment
 
 ```bash
 python -m venv .venv
 ```
 
-Install the dependencies on Windows:
+### 3. Install dependencies
+
+On Windows, run:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-Make sure the required model file, `yolo11n.pt`, is available in the project root. The model weights are not included in this repository by default.
+### 4. Add the model weights
 
-Start the application:
+VisionX requires the `yolo11n.pt` model file in the project root. This file is not included in the repository by default. Obtain the appropriate pretrained weights from a trusted source and follow the applicable model licensing terms.
+
+### 5. Run the application
+
+On Windows, run:
 
 ```powershell
 .\.venv\Scripts\python.exe -m streamlit run app.py
 ```
 
 Open the local URL displayed in the terminal, usually `http://localhost:8501`.
-
-
 
 ## Sample Images
 
@@ -114,35 +146,20 @@ Two example images are provided for trying image detection:
 - `docs/sample-images/StreetScene.png`
 - `docs/sample-images/BusyRoad.png`
 
-Detection results depend on the objects present in the image and the model's predictions.
+The results depend on the image and the objects detected by the model.
 
-## Limitations and Safety
+## Limitations
 
-- Objects can be missed or incorrectly identified.
-- Confidence scores do not guarantee that a detection is correct.
-- Spoken feedback may not fully describe the scene or spatial relationships.
-- The application has not been validated for independent navigation or safety-critical use.
-- It does not provide a validated obstacle-distance measurement or route-guidance system.
-
-**Do not rely on VisionX to cross roads, avoid obstacles, or make safety-critical decisions.** It is a prototype for learning and experimentation.
+VisionX may miss objects or identify them incorrectly. Confidence scores do not guarantee that a detection is correct. Spoken descriptions may not capture every detail of a scene, and live performance depends on the computer, camera, and browser.
 
 ## Future Improvements
 
-- Improve spoken descriptions and accessibility.
-- Evaluate detection quality using a documented test set.
-- Improve live detection responsiveness.
-- Explore clearer ways to communicate spatial information.
-- Investigate assistive hardware when suitable resources are available.
+Possible future improvements include:
 
-These are potential improvements, not features promised by the current implementation.
+- Improving detection accuracy, speed, and spoken descriptions.
+- Exploring voice commands to request information about specific objects.
+- Investigating distance estimation and spatial audio.
+- Exploring integration with assistive hardware, wearable devices, or smart glasses, including XR platforms such as Meta glasses.
+- Improving accessibility and evaluating the application through appropriate testing.
 
-## Licensing and Attribution
-
-This project uses third-party software and pretrained model weights. Check the relevant licenses and attribution requirements before redistributing the software, model weights, or other assets.
-
-Making a repository public does not automatically grant others permission to reuse all its contents. An appropriate project license can be added after the licensing of the included work has been confirmed.
-
-## Project Status
-
-VisionX is an ongoing assistive AI prototype. This repository documents the current implementation, how to run it, and its known limitations.
-
+These are possible future directions, not features currently implemented in the application.
