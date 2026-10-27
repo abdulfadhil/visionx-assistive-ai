@@ -1,4 +1,4 @@
-﻿streamlit
+streamlit
 ultralytics
 pillow
 streamlit-webrtc
